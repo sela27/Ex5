@@ -14,7 +14,7 @@ namespace itertools {
 		private:
 			T iter;
 		public:
-			iterator(T start) : iter(start) {};
+			iterator(T start) : iter(start) {}
 
 			bool operator!=(iterator const& other) const
 			{
@@ -27,6 +27,12 @@ namespace itertools {
 			}
 
 			iterator& operator++()
+			{
+				++iter;
+				return *this;
+			}
+
+			iterator& operator++(int)
 			{
 				++iter;
 				return *this;
