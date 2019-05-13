@@ -16,7 +16,7 @@ namespace itertools
 			typename T::iterator first_end;
 			typename U::iterator second_start;
 		public:
-			iterator(typename T::iterator fs , typename T::iterator fe , typename T::iterator ss): first_start(fs) , 
+			iterator(typename T::iterator fs , typename T::iterator fe , typename U::iterator ss): first_start(fs) , 
 			first_end(fe) , second_start(ss){}
 
 
@@ -31,9 +31,9 @@ namespace itertools
 			auto const& operator*() const
 			{
 				if (first_start != first_end)
-					return first_start;
+					return *first_start;
 				else
-					return second_start;
+					return *second_start;
 			}
 
 			iterator& operator++()
@@ -48,10 +48,10 @@ namespace itertools
 		};
 
 		iterator begin() {
-			return iterator{ firstContainer->beging(), firstContainer->end(), secondContainer->end() };
+			return iterator{ firstContainer.begin(), firstContainer.end(), secondContainer.begin() };
 		}
 		iterator end() {
-			return iterator{ firstContainer->end(), firstContainer->end(), secondContainer->end() };
+			return iterator{ firstContainer.end(), firstContainer.end(), secondContainer.end() };
 		}
 	};
 }
