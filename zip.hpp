@@ -1,5 +1,6 @@
 #pragma once
 #include <utility>
+#include "my_pair.hpp"
 using namespace std;
 namespace itertools
 {
@@ -30,11 +31,13 @@ namespace itertools
 				return *this;
 			}
 
-			pair* const& operator*()
+			auto const& operator*()
 			{
-				std::pair<typename T::iterator, typename U::iterator> p;
-				p = make_pair(first_start , second_start);
-				return *p;
+				//std::pair<typename T::iterator*, typename U::iterator*> p = make_pair(*first_start, *second_start);
+				//return p;
+				//return *first_start + "," + *second_start;
+				my_pair mp{ *first_start , *second_start };
+				return mp;
 			}
 		};
 
