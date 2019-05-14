@@ -4,7 +4,7 @@
 using namespace std;
 namespace itertools
 {
-	template <typename T, typename U>
+/*	template <typename T, typename U>
 	class zip
 	{
 	private:
@@ -37,6 +37,7 @@ namespace itertools
 				//return p;
 				//return *first_start + "," + *second_start;
 				my_pair mp{ *first_start , *second_start };
+				//return my_pair(*first_start , *second_start);
 				return mp;
 			}
 		};
@@ -49,5 +50,13 @@ namespace itertools
 		{
 			return iterator{firstContainer.end() , secondContainer.end() };
 		}
+	};*/
+
+	template<typename T1, typename T2>
+	class zip {
+	public:
+		zip(const T1& a, const T2& b) {}
+		int* begin() const { return nullptr; }
+		int* end() const { return nullptr; }
 	};
 }
