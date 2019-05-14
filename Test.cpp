@@ -9,6 +9,15 @@ using namespace std;
 #include "badkan.hpp"
 using namespace itertools;
 
+
+template<typename Iterable>
+string iterable_to_string(const Iterable& iterable) {
+	ostringstream ostr;
+	for (auto i: iterable)
+		ostr << i << ",";
+	return ostr.str();
+}
+
 int main()
 {
 	badkan::TestCase testcase;
@@ -130,6 +139,27 @@ int main()
 				l++;
 				m++;
 			}
+		}
+		/*testcase.setname("product tests");
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(product(range(1,4) , string("hello"))) , "1,h 1,e 1,l 1,l 1,o 2,h 2,e 2,l 2,l 2,o 3,h 3,e 3,l 3,l 3,o");
+		}*/
+		testcase.setname("powerset tests");
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(powerset(range(1,4))) , "{}{1}{2}{1,2}{3}{1,3}{2,3}{1,2,3}");
+			
+		}
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(powerset(chain(range('a','c') , range('x','z') ))) , "{}{a}{b}{a,b}{x}{a,x}{b,x}{a,b,x}{y}{a,y}{b,y}{a,b,y}{x,y}{a,x,y}{b,x,y}{a,b,x,y}");
+			
+		}
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(powerset(string("ab"))) , "{}{a}{b}{a,b}");
+			
+		}
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(powerset(chain(range('a','c') , range('1','3') ))) , "{}{a}{b}{a,b}{1}{a,1}{b,1}{a,b,1}{2}{a,2}{b,2}{a,b,2}{1,2}{a,1,2}{b,1,2}{a,b,1,2}");
+			
 		}
 
 
