@@ -81,7 +81,7 @@ int main()
 			char j = 'a';
 			for(auto k: zip(range(1,6) , range('a' , 'f')))
 			{
-				testcase.CHECK_OUTPUT(k , i + "," + j);
+				testcase.CHECK_OUTPUT(k , to_string(i) + "," + to_string(j));
 				i++;
 				j++;
 			}
@@ -92,7 +92,7 @@ int main()
 			int j = 7;
 			for(auto k: zip(range(1,6) , range(7 , 12)))
 			{
-				testcase.CHECK_OUTPUT(k , i + "," + j);
+				testcase.CHECK_OUTPUT(k , to_string(i) + "," + to_string(j));
 				i++;
 				j++;
 			}
@@ -102,7 +102,7 @@ int main()
 			char j = 'a';
 			for(auto k: zip(range('f' , 'k') , range('a' , 'f')))
 			{
-				testcase.CHECK_OUTPUT(k , i + "," + j);
+				testcase.CHECK_OUTPUT(k , to_string(i) + "," + to_string(j));
 				i++;
 				j++;
 			}
@@ -112,7 +112,7 @@ int main()
 			char j = 'h';
 			for(auto k: zip(string("abcdefg") , string("hijklmn"))
 			{
-				testcase.CHECK_OUTPUT(k , i + "," + j);
+				testcase.CHECK_OUTPUT(k , to_string(i) + "," + to_string(j));
 				i++;
 				j++;
 			}
@@ -124,7 +124,7 @@ int main()
 			char m = 'k';
 			for(auto i: zip(zip(range(0,10),string("abcdefghij")),zip(range(11,21) , string("klmnopqrst"))))
 			{
-				testcase.CHECK_OUTPUT(i , j + "," + k + "," + l + "," + m);
+				testcase.CHECK_OUTPUT(i , to_string(j) + "," + to_string(k) + "," + to_string(l) + "," + to_string(m));
 				j++;
 				k++;
 				l++;
