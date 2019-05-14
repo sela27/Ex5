@@ -75,27 +75,7 @@ int main()
 				i++;
 			}
 		}
-		{
-			auto i = 1;
-			for(auto j: chain(range(1,10),string("lmnopqrstuvwxyz")))
-			{
-				testcase.CHECK_EQUAL(j , i);
-				i++;
-				if(i == 10)
-					i = 'l';
-			}
-		}
-		{
-			auto i = 1;
-			for(auto j: chain(range(1,10),string("lmnopqrstuvwxyz")))
-			{
-				testcase.CHECK_EQUAL(j , i);
-				i++;
-				if(i == 10)
-					i = 'l';
-			}
-		}
-
+		testcase.setname("zip tests");
 		{
 			int i = 0;
 			char j = 'a';
@@ -104,6 +84,51 @@ int main()
 				testcase.CHECK_OUTPUT(k , i + "," + j);
 				i++;
 				j++;
+			}
+		}
+
+		{
+			int i = 0;
+			int j = 7;
+			for(auto k: zip(range(1,6) , range(7 , 12)))
+			{
+				testcase.CHECK_OUTPUT(k , i + "," + j);
+				i++;
+				j++;
+			}
+		}
+		{
+			int i = 'f';
+			char j = 'a';
+			for(auto k: zip(range('f' , 'k') , range('a' , 'f')))
+			{
+				testcase.CHECK_OUTPUT(k , i + "," + j);
+				i++;
+				j++;
+			}
+		}
+		{
+			char i = 'a';
+			char j = 'h';
+			for(auto k: zip(string("abcdefg") , string("hijklmn"))
+			{
+				testcase.CHECK_OUTPUT(k , i + "," + j);
+				i++;
+				j++;
+			}
+		}
+		{
+			int j = 0;
+			char k = 'a';
+			int l = 11;
+			char m = 'k';
+			for(auto i: zip(zip(range(0,10),string("abcdefghij")),zip(range(11,21) , string("klmnopqrst"))))
+			{
+				testcase.CHECK_OUTPUT(i , j + "," + k + "," + l + "," + m);
+				j++;
+				k++;
+				l++;
+				m++;
 			}
 		}
 
