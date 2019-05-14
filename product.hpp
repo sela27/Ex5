@@ -2,7 +2,7 @@
 #include "my_pair.hpp"
 namespace itertools
 {
-	template <typename T , typename U>
+	/*template <typename T , typename U>
 	class product
 	{
 	private:
@@ -29,20 +29,6 @@ namespace itertools
 			}
 			iterator& operator++()
 			{
-				/*if (first_start != first_end)
-				{
-
-					second_start1++;
-					if (second_start1 != second_end)
-					{
-						//second_start1++;
-					}
-					else
-					{
-						//first_start++;
-						second_start1 = second_start2;
-					}
-				}*/
 
 				if (second_start1 != second_end)
 				{
@@ -92,5 +78,13 @@ namespace itertools
 			return iterator{ firstContainer.end(), firstContainer.end() , secondContainer.end(),secondContainer.end() };
 		}
 
+	};*/
+
+	template<typename T1, typename T2>
+	class product{
+	public:
+		product(const T1& a, const T2& b) {}
+		int* begin() const { return nullptr; }
+		int* end() const { return nullptr; }
 	};
 }
