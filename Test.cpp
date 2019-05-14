@@ -110,7 +110,7 @@ int main()
 		{
 			char i = 'a';
 			char j = 'h';
-			for(auto k: zip(string("abcdefg") , string("hijklmn"))
+			for(auto k: zip(string("abcdefg") , string("hijklmn")))
 			{
 				testcase.CHECK_OUTPUT(k , to_string(i) + "," + to_string(j));
 				i++;
