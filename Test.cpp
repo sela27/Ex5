@@ -50,6 +50,14 @@ int main()
 				i++;
 			}
 		}
+		{
+			double i = -500;
+			for(double j: range(-500,500))
+			{
+				testcase.CHECK_EQUAL(j , i);
+				i++;
+			}
+		}
 		testcase.setname("chain tests");
 		{
 			int i = 0;
@@ -79,6 +87,14 @@ int main()
 		{
 			char i = 'a';
 			for(char j: chain(range('a' , 'k'),string("lmnopqrstuvwxyz")))
+			{
+				testcase.CHECK_EQUAL(j , i);
+				i++;
+			}
+		}
+		{
+			int i = -1000;
+			for(int j: chain(range(-1000,0),range(0,1000)))
 			{
 				testcase.CHECK_EQUAL(j , i);
 				i++;
@@ -140,10 +156,16 @@ int main()
 				m++;
 			}
 		}
-		/*testcase.setname("product tests");
+		testcase.setname("product tests");
 		{
 			testcase.CHECK_OUTPUT(iterable_to_string(product(range(1,4) , string("hello"))) , "1,h 1,e 1,l 1,l 1,o 2,h 2,e 2,l 2,l 2,o 3,h 3,e 3,l 3,l 3,o");
-		}*/
+		}
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(product(range(1,3) , range(1,3))) , "1,1 1,2 2,1 2,2");
+		}
+		{
+			testcase.CHECK_OUTPUT(iterable_to_string(product(string("hi") , string("by"))) , "h,b h,y i,b i,y");
+		}
 		testcase.setname("powerset tests");
 		{
 			testcase.CHECK_OUTPUT(iterable_to_string(powerset(range(1,4))) , "{}{1}{2}{1,2}{3}{1,3}{2,3}{1,2,3}");
